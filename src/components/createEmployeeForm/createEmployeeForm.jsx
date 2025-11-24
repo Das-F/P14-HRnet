@@ -1,13 +1,13 @@
 import "./createEmployeeForm.css";
 import EmployeeIdentity from "../employeeIdentity/employeeIdentity";
-import EmployeeAddress from "../employeeAddress/employeeAddress";
+import EmployeeAdress from "../employeeAdress/employeeAdress";
 import Department from "../createEmployee/Department";
 
 const CreateEmployeeForm = () => {
   return (
     <>
       <EmployeeIdentity />
-      <EmployeeAddress />
+      <EmployeeAdress />
       <Department />
     </>
   );
