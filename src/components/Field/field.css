@@ -1,0 +1,12 @@
+import "./field.css";
+
+function Field({ label, children }) {
+  return (
+    <div className="field">
+      <label className="field-label">{label}</label>
+      <div className="field-input">{children}</div>
+    </div>
+  );
+}
+
+export default Field;
