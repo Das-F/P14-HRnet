@@ -1,5 +1,6 @@
 import "./employeeAdress.css";
 import Field from "../Field/field";
+import State from "../createEmployee/State";
 
 function EmployeeAddress({ street, city, state, zipCode }) {
   return (
@@ -14,6 +15,7 @@ function EmployeeAddress({ street, city, state, zipCode }) {
         <input type="text" placeholder="" />
       </Field>
       <Field label="State">{state}</Field>
+      <State />
       <Field label="Zip Code">
         {zipCode}
         <input type="text" placeholder="" />
