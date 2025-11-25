@@ -1,0 +1,11 @@
+.head {
+  background-color: lightblue;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+}
+.head h1 {
+  margin: 0;
+  font-size: 24px;
+}
