@@ -8,11 +8,21 @@
   color: #333;
 }
 
-.head h1 {
+.head-title h1 {
   background-color: lightblue;
   color: black;
   width: 100%;
   margin: 0 0 20px 0;
-  font-size: 28px;
+  font-size: 44px;
   padding: 8px 16px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+.view-employees-link {
+  color: darkblue;
+  font-weight: bold;
+  font-size: 18px;
 }

@@ -1,5 +1,5 @@
 import "./CreateEmployee.css";
-import Header from "../components/createEmployee/Header";
+import Header from "../components/createEmployee/Header/Header";
 import CreateEmployeeForm from "../components/createEmployeeForm/createEmployeeForm";
 import SaveButton from "../components/saveButton/saveButton";
 

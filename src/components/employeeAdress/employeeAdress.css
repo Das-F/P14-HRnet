@@ -1,5 +1,11 @@
 fieldset {
   border: solid 3px lightblue;
   margin: 0;
-  padding: 0;
+  padding: 5px;
+  width: fit-content;
+}
+
+legend {
+  padding: 0 6px;
+  position: relative;
 }

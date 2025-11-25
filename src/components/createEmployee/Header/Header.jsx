@@ -7,7 +7,9 @@ const Header = () => {
       <div className="head-title">
         <h1>HRnet</h1>
       </div>
-      <Link to="/employee-list">View Current Employees </Link>
+      <Link to="/employee-list" className="view-employees-link">
+        View Current Employees{" "}
+      </Link>
       <h2>Create Employee</h2>
     </>
   );

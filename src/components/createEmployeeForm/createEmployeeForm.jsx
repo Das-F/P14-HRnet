@@ -1,14 +1,16 @@
 import "./createEmployeeForm.css";
 import EmployeeIdentity from "../employeeIdentity/employeeIdentity";
 import EmployeeAdress from "../employeeAdress/employeeAdress";
-import Department from "../createEmployee/Department";
+import Department from "../createEmployee/Department/Department";
 
 const CreateEmployeeForm = () => {
   return (
     <>
-      <EmployeeIdentity />
-      <EmployeeAdress />
-      <Department />
+      <div className="employee-form">
+        <EmployeeIdentity />
+        <EmployeeAdress />
+        <Department />
+      </div>
     </>
   );
 };

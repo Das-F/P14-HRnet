@@ -1,10 +1,10 @@
 import "./Department.css";
-import departments from "../constants/departments.js";
+import departments from "../../constants/departments.js";
+import Field from "../../Field/field";
 
 const Department = () => {
   return (
-    <div className="department">
-      <h3>Department</h3>
+    <Field label="Department">
       <select name="department" id="department">
         {departments.map((dept) => (
           <option key={dept} value={dept}>
@@ -12,7 +12,8 @@ const Department = () => {
           </option>
         ))}
       </select>
-    </div>
+    </Field>
   );
 };
+
 export default Department;
