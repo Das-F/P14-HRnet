@@ -6,9 +6,6 @@
 }
 
 .field-input input {
-  background-color: #f0f0f0;
-}
-
-.field-input select {
-  border: 3px solid #333;
+  background-color: lightblue;
+  border: 3px solid lightgrey;
 }

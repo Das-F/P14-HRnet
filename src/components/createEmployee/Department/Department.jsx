@@ -1,8 +1,9 @@
+import "./Department.css";
 import departments from "../constants/departments.js";
 
 const Department = () => {
   return (
-    <div>
+    <div className="department">
       <h3>Department</h3>
       <select name="department" id="department">
         {departments.map((dept) => (
