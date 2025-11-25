@@ -5,21 +5,23 @@ import State from "../createEmployee/State";
 function EmployeeAddress({ street, city, state, zipCode }) {
   return (
     <div className="employee-address">
-      <h2>Employee Address</h2>
-      <Field label="Street">
-        {street}
-        <input type="text" placeholder="" />
-      </Field>
-      <Field label="City">
-        {city}
-        <input type="text" placeholder="" />
-      </Field>
-      <Field label="State">{state}</Field>
-      <State />
-      <Field label="Zip Code">
-        {zipCode}
-        <input type="text" placeholder="" />
-      </Field>
+      <fieldset>
+        <legend>Adress</legend>
+        <Field label="Street">
+          {street}
+          <input type="text" placeholder="" />
+        </Field>
+        <Field label="City">
+          {city}
+          <input type="text" placeholder="" />
+        </Field>
+        <Field label="State">{state}</Field>
+        <State />
+        <Field label="Zip Code">
+          {zipCode}
+          <input type="text" placeholder="" />
+        </Field>
+      </fieldset>
     </div>
   );
 }
