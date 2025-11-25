@@ -1,6 +1,5 @@
 import Header from "../components/createEmployee/Header";
 import CreateEmployeeForm from "../components/createEmployeeForm/createEmployeeForm";
-import Department from "../components/createEmployee/Department";
 import SaveButton from "../components/saveButton/saveButton";
 
 const CreateEmployee = () => {
@@ -8,7 +7,6 @@ const CreateEmployee = () => {
     <>
       <Header />
       <CreateEmployeeForm />
-      <Department />
       <SaveButton />
     </>
   );
