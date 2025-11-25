@@ -1,7 +1,7 @@
 import "./CreateEmployee.css";
-import Header from "../components/createEmployee/Header/Header";
+import Header from "../components/CreateEmployeePage/Header/Header";
 import CreateEmployeeForm from "../components/CreateEmployeePage/createEmployeeForm/createEmployeeForm";
-import SaveButton from "../components/saveButton/saveButton";
+import SaveButton from "../components/CreateEmployeePage/saveButton/saveButton";
 
 const CreateEmployee = () => {
   return (
