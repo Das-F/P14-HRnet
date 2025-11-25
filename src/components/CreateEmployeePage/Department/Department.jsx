@@ -1,6 +1,6 @@
 import "./Department.css";
 import departments from "../../constants/departments.js";
-import Field from "../../Field/field";
+import Field from "../Field/field.jsx";
 
 const Department = () => {
   return (

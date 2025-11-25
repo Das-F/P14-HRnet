@@ -1,5 +1,5 @@
 import "./employeeIdentity.css";
-import Field from "../Field/field";
+import Field from "../CreateEmployeePage/Field/field";
 
 function EmployeeIdentity({ dateOfBirth, startDate }) {
   return (

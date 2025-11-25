@@ -1,7 +1,7 @@
 import "./createEmployeeForm.css";
-import EmployeeIdentity from "../employeeIdentity/employeeIdentity";
-import EmployeeAdress from "../employeeAdress/employeeAdress";
-import Department from "../createEmployee/Department/Department";
+import EmployeeIdentity from "../Identity/employeeIdentity";
+import EmployeeAdress from "../Adress/employeeAdress";
+import Department from "../Department/Department";
 
 const CreateEmployeeForm = () => {
   return (
