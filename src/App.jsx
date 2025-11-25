@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CreateEmployee from "./pages/CreateEmployee";
-import EmployeeList from "./pages/EmployeeList";
+import CurrentEmployees from "./pages/CurrentEmployees";
 import "./App.css";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<CreateEmployee />} />
-        <Route path="/employee-list" element={<EmployeeList />} />
+        <Route path="/current-employees" element={<CurrentEmployees />} />
       </Routes>
     </Router>
   );
