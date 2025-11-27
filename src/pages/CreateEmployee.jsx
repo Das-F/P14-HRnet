@@ -4,11 +4,14 @@ import CreateEmployeeForm from "../components/CreateEmployeePage/createEmployeeF
 import SaveButton from "../components/CreateEmployeePage/saveButton/saveButton";
 
 const CreateEmployee = () => {
+  const handleClick = () => {
+    console.log("Save button clicked");
+  };
   return (
     <>
       <Header />
       <CreateEmployeeForm />
-      <SaveButton />
+      <SaveButton onSave={handleClick} />
     </>
   );
 };
