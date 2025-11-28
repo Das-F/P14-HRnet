@@ -1,0 +1,121 @@
+.array-filters {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.array-length {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.array-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.array-filters h4 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.array-filters select {
+  padding: 5px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+}
+
+.employee-list-table {
+  width: 100%;
+  border-bottom: 2px solid #000;
+}
+
+th {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sort-icon {
+  display: inline-block;
+  width: 16px;
+  height: 24px;
+  margin-left: 6px;
+  position: relative;
+}
+
+.sort-icon::before,
+.sort-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  opacity: 0.9;
+}
+
+.sort-icon::before {
+  border-bottom: 10px solid #ccc;
+  top: 0;
+}
+
+.sort-icon::after {
+  border-top: 10px solid #ccc;
+  bottom: 0;
+}
+
+th[data-order="asc"] .sort-icon::before {
+  border-bottom-color: #000;
+  opacity: 1;
+}
+
+th[data-order="desc"] .sort-icon::after {
+  border-top-color: #000;
+  opacity: 1;
+}
+
+tbody tr {
+  background-color: lightblue;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.array-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.pagination-info {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.pagination-buttons button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  background-color: #ffffff;
+  border: none #ccc;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.pagination-buttons button.active {
+  border: 1px solid grey;
+  border-radius: 4px;
+  background-color: lightblue;
+}
