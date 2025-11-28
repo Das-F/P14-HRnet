@@ -19,11 +19,11 @@ function EmployeeIdentity() {
       </Field>
 
       <Field label="Date of Birth">
-        <DatePicker className="date-picker" selected={birthDate} onChange={(date) => setBirthDate(date)} dateFormat="dd/MM/yyyy" placeholderText="" showYearDropdown scrollableYearDropdown minDate={new Date(1925, 0, 1)} maxDate={new Date()} yearDropdownItemNumber={100} openToDate={new Date(1980, 0, 1)} />
+        <DatePicker className="date-picker" selected={birthDate} onChange={(date) => setBirthDate(date)} dateFormat="MM/dd/yyyy" placeholderText="" showYearDropdown scrollableYearDropdown minDate={new Date(1925, 0, 1)} maxDate={new Date()} yearDropdownItemNumber={100} openToDate={new Date(1980, 0, 1)} />
       </Field>
 
       <Field label="Start Date">
-        <DatePicker className="date-picker" selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="dd/MM/yyyy" placeholderText="" showYearDropdown scrollableYearDropdown yearDropdownItemNumber={30} />
+        <DatePicker className="date-picker" selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="MM/dd/yyyy" placeholderText="" showYearDropdown scrollableYearDropdown yearDropdownItemNumber={30} />
       </Field>
     </div>
   );
