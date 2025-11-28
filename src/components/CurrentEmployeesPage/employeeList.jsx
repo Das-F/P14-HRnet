@@ -32,6 +32,13 @@ const employeeList = () => {
     direction: null,
   });
 
+  // Search term for filtering rows
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   // Sorting function
   const sortColumn = (key) => {
     let direction = "asc";
@@ -63,6 +70,13 @@ const employeeList = () => {
     return sortConfig.direction;
   };
 
+  // Filtered data according to search term (search across all fields)
+  const filteredData = data.filter((employee) => {
+    if (!searchTerm) return true;
+    const term = searchTerm.toString().toLowerCase();
+    return Object.values(employee).some((value) => value?.toString().toLowerCase().includes(term));
+  });
+
   return (
     <div className="employee-list-array">
       <div className="array-filters">
@@ -80,7 +94,7 @@ const employeeList = () => {
         </div>
         <div className="array-search">
           <h4> Search:</h4>
-          <input type="text" placeholder="" />
+          <input type="text" placeholder="" value={searchTerm} onChange={handleSearch} />
         </div>
       </div>
 
@@ -126,7 +140,7 @@ const employeeList = () => {
         </thead>
 
         <tbody>
-          {data.map((employee, i) => (
+          {filteredData.map((employee, i) => (
             <tr key={i}>
               <td>{employee.firstName}</td>
               <td>{employee.lastName}</td>
@@ -144,7 +158,7 @@ const employeeList = () => {
       <div className="array-pagination">
         <div className="pagination-info">
           <span>
-            Showing 1 to {data.length} of {data.length} entries
+            Showing 1 to {filteredData.length} of {data.length} entries
           </span>
         </div>
         <div className="pagination-buttons">
