@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import CreateEmployee from "./pages/CreateEmployee";
 import CurrentEmployees from "./pages/CurrentEmployees";
 import "./App.css";

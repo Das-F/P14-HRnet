@@ -1,0 +1,69 @@
+/* Overlay */
+.cp-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+/* Modal box */
+.cp-modal {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.25rem 2.5rem;
+  min-width: 300px;
+  max-width: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: #000000;
+  text-align: center;
+}
+
+.cp-content p {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+/* Close button: circle with white cross */
+.cp-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  background: #1e3a8a;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.cp-close:focus {
+  outline: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.cp-close-icon {
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1;
+}
+
+@media (max-width: 420px) {
+  .cp-modal {
+    padding: 1.5rem 1.25rem;
+  }
+  .cp-close {
+    width: 32px;
+    height: 32px;
+    top: -12px;
+    right: -12px;
+  }
+}
