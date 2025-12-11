@@ -3,7 +3,7 @@ import { useState } from "react";
 import Header from "../components/CreateEmployeePage/Header/Header";
 import CreateEmployeeForm from "../components/CreateEmployeePage/createEmployeeForm/createEmployeeForm";
 import SaveButton from "../components/CreateEmployeePage/saveButton/saveButton";
-import CreationPopUp from "../components/CreateEmployeePage/CreationPopUp/CreationPop-up";
+import ModalPopUp from "../components/CreateEmployeePage/CreationPopUp/CreationPopUp";
 
 const CreateEmployee = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -20,7 +20,7 @@ const CreateEmployee = () => {
       <Header />
       <CreateEmployeeForm />
       <SaveButton onSave={handleClick} />
-      {showPopup && <CreationPopUp onClose={handleClose} />}
+      <ModalPopUp isOpen={showPopup} onClose={handleClose} message="Employee Created !" />
     </>
   );
 };
