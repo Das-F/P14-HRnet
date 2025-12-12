@@ -30,7 +30,7 @@ const CreateEmployeeForm = () => {
         <SaveButton />
       </form>
 
-      <CreationPopUp isOpen={isOpen} onClose={() => setIsOpen(false)} title={"Employee Created"} message={"L'employé a bien été créé."} />
+      <CreationPopUp isOpen={isOpen} onClose={() => setIsOpen(false)} title={"Employee Created"} message={""} />
     </>
   );
 };
