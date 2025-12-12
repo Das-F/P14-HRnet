@@ -21,7 +21,7 @@
 .field-input input {
   background-color: lightblue;
   border: 3px solid lightgrey;
-  width: 300px;
+  width: 360px;
   height: 22px;
   margin: 0;
   display: block;
@@ -30,7 +30,7 @@
 .field-input select {
   background-color: lightblue;
   border: 3px solid lightgrey;
-  width: 300px;
+  width: 370px;
   height: 28px;
   margin: 0;
   padding: 2px;

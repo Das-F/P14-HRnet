@@ -8,16 +8,16 @@ function EmployeeAddress() {
       <fieldset>
         <legend>Adress</legend>
         <Field label="Street">
-          <input type="text" placeholder="" />
+          <input type="text" required placeholder="" />
         </Field>
         <Field label="City">
-          <input type="text" placeholder="" />
+          <input type="text" required placeholder="" />
         </Field>
         <Field label="State">
           <State />
         </Field>
         <Field label="Zip Code">
-          <input type="text" placeholder="" />
+          <input type="text" required placeholder="" />
         </Field>
       </fieldset>
     </div>

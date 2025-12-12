@@ -2,15 +2,17 @@ import "./createEmployeeForm.css";
 import EmployeeIdentity from "../Identity/employeeIdentity";
 import EmployeeAdress from "../Adress/employeeAdress";
 import Department from "../Department/Department";
+import SaveButton from "../saveButton/saveButton";
 
 const CreateEmployeeForm = () => {
   return (
     <>
-      <div className="employee-form">
+      <form className="employee-form">
         <EmployeeIdentity />
         <EmployeeAdress />
         <Department />
-      </div>
+        <SaveButton />
+      </form>
     </>
   );
 };

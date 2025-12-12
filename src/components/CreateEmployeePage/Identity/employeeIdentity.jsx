@@ -24,21 +24,21 @@ function EmployeeIdentity() {
   return (
     <div className="employee-identity">
       <Field label="First Name">
-        <input type="text" placeholder="" onChange={(e) => console.log("First name :", e.target.value)} />
+        <input type="text" required placeholder="" onChange={(e) => console.log("First name :", e.target.value)} />
       </Field>
 
       <Field label="Last Name">
-        <input type="text" placeholder="" onChange={(e) => console.log("Last name :", e.target.value)} />
+        <input type="text" required placeholder="" onChange={(e) => console.log("Last name :", e.target.value)} />
       </Field>
 
       {/* Birthdate Picker */}
       <Field label="Date of Birth">
-        <DatePicker className="date-picker" selected={birthDate} onChange={(date) => setBirthDate(date)} dateFormat="MM/dd/yyyy" placeholderText="" showYearDropdown scrollableYearDropdown minDate={minBirthDate} maxDate={maxBirthDate} openToDate={new Date(maxBirthYear - 10, 0, 1)} />
+        <DatePicker className="date-picker" required selected={birthDate} onChange={(date) => setBirthDate(date)} dateFormat="MM/dd/yyyy" placeholderText="" showYearDropdown scrollableYearDropdown minDate={minBirthDate} maxDate={maxBirthDate} openToDate={new Date(maxBirthYear - 10, 0, 1)} />
       </Field>
 
       {/* Start Date Picker */}
       <Field label="Start Date">
-        <DatePicker className="date-picker" selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="MM/dd/yyyy" placeholderText="" showYearDropdown scrollableYearDropdown minDate={minStartDate} maxDate={maxStartDate} openToDate={today} />
+        <DatePicker className="date-picker" required selected={startDate} onChange={(date) => setStartDate(date)} dateFormat="MM/dd/yyyy" placeholderText="" showYearDropdown scrollableYearDropdown minDate={minStartDate} maxDate={maxStartDate} openToDate={today} />
       </Field>
     </div>
   );
