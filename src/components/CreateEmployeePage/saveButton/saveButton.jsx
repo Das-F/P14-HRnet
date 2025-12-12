@@ -1,8 +1,8 @@
 import "./saveButton.css";
 
-const SaveButton = ({ onSave }) => {
+const SaveButton = () => {
   return (
-    <button type="submit" className="save-button" onClick={onSave}>
+    <button type="submit" className="save-button">
       Save
     </button>
   );
