@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./employeeList.css";
 
 const employeeList = () => {
-  const [data, setData] = useState([
+  const [data, setData] = useState([]);
+
+  // Default sample data when localStorage is empty
+  const sampleData = [
     {
       firstName: "John",
       lastName: "Doe",
@@ -25,7 +28,45 @@ const employeeList = () => {
       state: "MA",
       zipCode: "02110",
     },
-  ]);
+  ];
+
+  // Load employees from localStorage on mount and subscribe to updates
+  useEffect(() => {
+    const load = () => {
+      try {
+        const stored = JSON.parse(localStorage.getItem("employees") || "[]");
+        if (Array.isArray(stored) && stored.length > 0) setData(stored);
+        else setData(sampleData);
+      } catch (err) {
+        console.error("Failed to load employees:", err);
+        setData(sampleData);
+      }
+    };
+
+    const handleStorage = (e) => {
+      if (e.key === "employees") {
+        try {
+          setData(JSON.parse(e.newValue || "[]"));
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    };
+
+    const handleCustom = (e) => {
+      if (e?.detail?.employees) setData(e.detail.employees);
+      else load();
+    };
+
+    load();
+    window.addEventListener("storage", handleStorage);
+    window.addEventListener("employeesUpdated", handleCustom);
+
+    return () => {
+      window.removeEventListener("storage", handleStorage);
+      window.removeEventListener("employeesUpdated", handleCustom);
+    };
+  }, []);
 
   const [sortConfig, setSortConfig] = useState({
     key: null,
@@ -38,6 +79,10 @@ const employeeList = () => {
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
+
+  // Pagination
+  const [pageSize, setPageSize] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Sorting function
   const sortColumn = (key) => {
@@ -77,17 +122,37 @@ const employeeList = () => {
     return Object.values(employee).some((value) => value?.toString().toLowerCase().includes(term));
   });
 
+  // Ensure currentPage is valid when filteredData or pageSize changes
+  useEffect(() => {
+    const totalPages = Math.max(1, Math.ceil(filteredData.length / pageSize));
+    if (currentPage > totalPages) setCurrentPage(totalPages);
+    if (currentPage < 1) setCurrentPage(1);
+  }, [filteredData.length, pageSize]);
+
+  const totalPages = Math.max(1, Math.ceil(filteredData.length / pageSize));
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = Math.min(startIndex + pageSize, filteredData.length);
+  const displayedData = filteredData.slice(startIndex, endIndex);
+  const showingStart = filteredData.length === 0 ? 0 : startIndex + 1;
+  const showingEnd = startIndex + displayedData.length;
+
   return (
     <div className="employee-list-array">
       <div className="array-filters">
         <div className="array-length">
           <h4> Show</h4>
           <div className="select-wrapper">
-            <select>
-              <option value="10">10</option>
-              <option value="25">25</option>
-              <option value="50">50</option>
-              <option value="100">100</option>
+            <select
+              value={pageSize}
+              onChange={(e) => {
+                setPageSize(Number(e.target.value));
+                setCurrentPage(1);
+              }}
+            >
+              <option value={10}>10</option>
+              <option value={25}>25</option>
+              <option value={50}>50</option>
+              <option value={100}>100</option>
             </select>
           </div>
           <h4> entries</h4>
@@ -140,8 +205,8 @@ const employeeList = () => {
         </thead>
 
         <tbody>
-          {filteredData.map((employee, i) => (
-            <tr key={i}>
+          {displayedData.map((employee, i) => (
+            <tr key={startIndex + i}>
               <td>{employee.firstName}</td>
               <td>{employee.lastName}</td>
               <td>{employee.startDate}</td>
@@ -158,13 +223,17 @@ const employeeList = () => {
       <div className="array-pagination">
         <div className="pagination-info">
           <span>
-            Showing 1 to {filteredData.length} of {data.length} entries
+            Showing {showingStart} to {showingEnd} of {filteredData.length} entries
           </span>
         </div>
         <div className="pagination-buttons">
-          <button>{"Previous"}</button>
-          <button className="active">1</button>
-          <button>{"Next"}</button>
+          <button onClick={() => setCurrentPage((p) => Math.max(1, p - 1))} disabled={currentPage === 1}>
+            {"Previous"}
+          </button>
+          <button className="active">{currentPage}</button>
+          <button onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))} disabled={currentPage === totalPages}>
+            {"Next"}
+          </button>
         </div>
       </div>
     </div>

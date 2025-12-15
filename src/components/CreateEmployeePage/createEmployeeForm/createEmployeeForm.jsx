@@ -17,8 +17,20 @@ const CreateEmployeeForm = () => {
     for (const [key, value] of formData.entries()) {
       data[key] = value;
     }
-    console.log("Form data:", data);
+    // Save to localStorage (append to existing array)
+    try {
+      const stored = JSON.parse(localStorage.getItem("employees") || "[]");
+      const employees = Array.isArray(stored) ? stored : [];
+      employees.push(data);
+      localStorage.setItem("employees", JSON.stringify(employees));
+      // Notify other components in the same window
+      window.dispatchEvent(new CustomEvent("employeesUpdated", { detail: { employees } }));
+    } catch (err) {
+      console.error("Failed to save employee:", err);
+    }
+
     setIsOpen(true);
+    form.reset();
   };
 
   return (
