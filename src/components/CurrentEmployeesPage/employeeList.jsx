@@ -1,72 +1,15 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import "./employeeList.css";
 
 const employeeList = () => {
   const [data, setData] = useState([]);
+  const employeesFromStore = useSelector((state) => state.employees.list);
 
-  // Default sample data when localStorage is empty
-  const sampleData = [
-    {
-      firstName: "John",
-      lastName: "Doe",
-      startDate: "2022-01-01",
-      department: "Sales",
-      dateOfBirth: "1990-01-01",
-      street: "123 Main St",
-      city: "New York",
-      state: "NY",
-      zipCode: "10001",
-    },
-    {
-      firstName: "Jane",
-      lastName: "Smith",
-      startDate: "2021-03-15",
-      department: "HR",
-      dateOfBirth: "1985-05-20",
-      street: "47 Elm St",
-      city: "Boston",
-      state: "MA",
-      zipCode: "02110",
-    },
-  ];
-
-  // Load employees from localStorage on mount and subscribe to updates
+  // Sync local data copy with store (keeps sorting/search/pagination local)
   useEffect(() => {
-    const load = () => {
-      try {
-        const stored = JSON.parse(localStorage.getItem("employees") || "[]");
-        if (Array.isArray(stored) && stored.length > 0) setData(stored);
-        else setData(sampleData);
-      } catch (err) {
-        console.error("Failed to load employees:", err);
-        setData(sampleData);
-      }
-    };
-
-    const handleStorage = (e) => {
-      if (e.key === "employees") {
-        try {
-          setData(JSON.parse(e.newValue || "[]"));
-        } catch (err) {
-          console.error(err);
-        }
-      }
-    };
-
-    const handleCustom = (e) => {
-      if (e?.detail?.employees) setData(e.detail.employees);
-      else load();
-    };
-
-    load();
-    window.addEventListener("storage", handleStorage);
-    window.addEventListener("employeesUpdated", handleCustom);
-
-    return () => {
-      window.removeEventListener("storage", handleStorage);
-      window.removeEventListener("employeesUpdated", handleCustom);
-    };
-  }, []);
+    if (Array.isArray(employeesFromStore)) setData(employeesFromStore.slice());
+  }, [employeesFromStore]);
 
   const [sortConfig, setSortConfig] = useState({
     key: null,

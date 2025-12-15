@@ -5,9 +5,12 @@ import EmployeeAdress from "../Adress/employeeAdress";
 import Department from "../Department/Department";
 import SaveButton from "../saveButton/saveButton";
 import CreationPopUp from "../CreationPopUp/CreationPopUp";
+import { useDispatch } from "react-redux";
+import { addEmployee } from "../../../store/employeesSlice";
 
 const CreateEmployeeForm = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,16 +20,11 @@ const CreateEmployeeForm = () => {
     for (const [key, value] of formData.entries()) {
       data[key] = value;
     }
-    // Save to localStorage (append to existing array)
+    // Dispatch to Redux store
     try {
-      const stored = JSON.parse(localStorage.getItem("employees") || "[]");
-      const employees = Array.isArray(stored) ? stored : [];
-      employees.push(data);
-      localStorage.setItem("employees", JSON.stringify(employees));
-      // Notify other components in the same window
-      window.dispatchEvent(new CustomEvent("employeesUpdated", { detail: { employees } }));
+      dispatch(addEmployee(data));
     } catch (err) {
-      console.error("Failed to save employee:", err);
+      console.error("Failed to dispatch employee:", err);
     }
 
     setIsOpen(true);
