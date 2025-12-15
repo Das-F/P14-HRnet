@@ -24,11 +24,11 @@ function EmployeeIdentity() {
   return (
     <div className="employee-identity">
       <Field label="First Name">
-        <input name="firstName" type="text" required placeholder="" onChange={(e) => console.log("First name :", e.target.value)} />
+        <input name="firstName" type="text" required placeholder="" />
       </Field>
 
       <Field label="Last Name">
-        <input name="lastName" type="text" required placeholder="" onChange={(e) => console.log("Last name :", e.target.value)} />
+        <input name="lastName" type="text" required placeholder="" />
       </Field>
 
       {/* Birthdate Picker */}
