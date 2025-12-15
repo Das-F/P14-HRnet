@@ -17,6 +17,26 @@ npm:
 npm install modal-react-popup
 ```
 
+## Quick start
+
+```jsx
+import { useState } from "react";
+import ModalPopUp from "modal-react-popup";
+
+export default function Example() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setOpen(true)}>Open</button>
+      <ModalPopUp isOpen={open} onClose={() => setOpen(false)}>
+        Hello !
+      </ModalPopUp>
+    </>
+  );
+}
+```
+
 ## Import
 
 ```jsx
@@ -69,5 +89,12 @@ Override de style / classes :
 
 ## CSS et theming
 
+Le CSS par défaut est automatiquement inclus lors de l’import du composant.
+
 - Le package fournit un CSS par défaut (`modal`, `modal-overlay`, `modal-content`, `modal-close`, ...).
 - Option `classNames` permet de substituer vos propres classes si vous préférez gérer entièrement le style.
+
+## Peer dependencies
+
+- react >= 18
+- react-dom >= 18

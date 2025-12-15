@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import "./CreationPopUp.css";
@@ -23,8 +23,8 @@ const ModalPopUp = ({ isOpen = true, onClose, children, title, message, classNam
   const closeClass = `modal-close ${classNames.closeButton || ""}`.trim();
 
   const modal = (
-    <div className={overlayClass} style={styles.overlay} onClick={() => closeOnOverlayClick && onClose && onClose()} aria-hidden={false}>
-      <div className={modalClass} style={styles.modal} role="dialog" aria-label={ariaLabel} onClick={(e) => e.stopPropagation()}>
+    <div className={overlayClass} style={styles.overlay} onClick={() => closeOnOverlayClick && onClose && onClose()}>
+      <div className={modalClass} style={styles.modal} role="dialog" aria-modal="true" aria-label={ariaLabel} onClick={(e) => e.stopPropagation()}>
         {showCloseButton && (
           <button className={closeClass} style={styles.closeButton} onClick={onClose} aria-label="Close dialog">
             <span className="modal-close-icon">×</span>
